@@ -23,7 +23,7 @@ NB: Pour des besoins de simplification, Angular (Front) est buildé et chargé c
 - Spring boot 
 - Spring Security
 - H2
-- IntelJ
+- IntelliJ
 - Vscode
 
 ### Dependence
