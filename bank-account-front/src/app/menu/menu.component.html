@@ -1,7 +1,7 @@
 <div class="header py-4">
   <div class="container">
     <div class="d-flex">
-      <a class="header-brand" routerLink="/account">
+      <a class="header-brand" routerLink="/home">
         <img src="assets/logo/sg.jpg" alt="SG">
       </a>
       <div class="d-flex order-lg-2 ml-auto">
@@ -10,7 +10,6 @@
             <span class="ml-2 d-none d-lg-block">
               <span class="text-default" style="color: black; font-weight: bold;"> {{client.firstName}} | {{client.lastName}}</span>
               <small class="text-muted d-block mt-1">Account Number : {{client.accountNumber}}</small>
-              <small  style="color: red; font-size: 14px;">Balance: 10 € </small>
             </span>
           </a>
           <a href="#" (click)="deconexion()" title="Deconexion" >
@@ -35,7 +34,7 @@
       <div class="col-lg order-lg-first">
         <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
           <li class="nav-item">
-            <a routerLink='/account' class="nav-link" style="color: red;"><i class="fe fe-home"></i> Home</a>
+            <a routerLink='/home' class="nav-link" style="color: red;"><i class="fe fe-home"></i> Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink='/operation' data-toggle="dropdown">

@@ -15,19 +15,24 @@ import java.util.List;
 @RequestMapping("/api/v1/operation")
 public class OperationControler {
 
-    @Autowired
-    private OperationsBusiness operationsBusiness;
+  @Autowired private OperationsBusiness operationsBusiness;
 
-    @PostMapping
-    public ResponseEntity<Operations> deposit(@RequestBody OperationModel operationModel){
-       return new ResponseEntity<Operations>(operationsBusiness.transaction(operationModel), HttpStatus.CREATED);
-    }
+  @PostMapping
+  public ResponseEntity<Operations> deposit(@RequestBody OperationModel operationModel) {
+    return new ResponseEntity<Operations>(
+        operationsBusiness.transaction(operationModel), HttpStatus.CREATED);
+  }
 
-    @GetMapping
-    public ResponseEntity<List<Operations>> findAllOperationClientById(){
-        return  new ResponseEntity<List<Operations>>(operationsBusiness.findAllOperations(),HttpStatus.ACCEPTED);
+  @GetMapping
+  public ResponseEntity<List<Operations>> findAllOperationClientById() {
+    return new ResponseEntity<List<Operations>>(
+        operationsBusiness.findAllOperations(), HttpStatus.ACCEPTED);
+  }
 
-    }
-
-
+  @GetMapping("/{accountNumber}")
+  public ResponseEntity<List<Operations>> findAllOperationByAccountNumber(
+      @PathVariable String accountNumber) {
+    return new ResponseEntity<List<Operations>>(
+        operationsBusiness.findOperationByAccount(accountNumber), HttpStatus.ACCEPTED);
+  }
 }

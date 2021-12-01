@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row mt-4 mb-4">
+    <div class="row " style="color: red;font-weight: bold;">Votre solde est :{{account.balance}} €</div>
     <h1 style="text-align: center;">OPERATIONS</h1>
   </div>
   <div class="col">
@@ -72,10 +73,8 @@
             </span>
           </div>
         </div>
-
-
         <br>
-        <button type="submit" class="btn btn-red"  (click)="reloadCurrentPage()" >Valider</button>
+        <button type="submit" class="btn btn-red" (click)="reloadCurrentPage()"   >Valider</button>
         <button type="submit" class="btn btn-red ml-2">
           <a routerLink="/printPage" style="color: white;text-decoration: none;"> Print </a>
         </button>

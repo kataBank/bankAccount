@@ -39,10 +39,10 @@ public class OperationsBusinessImpl implements OperationsBusiness {
     operation.setAccount(currentAccount);
     operation.setBalance(currentAccount.getBalance());
 
-    //Controle Beneficiare
-    //if(operationModel.getIdBeneficiary()!=null){
-      // findBeneficiary and set it to operation
-   // }
+    // Controle Beneficiare
+    // if(operationModel.getIdBeneficiary()!=null){
+    // findBeneficiary and set it to operation
+    // }
 
     return operationRepository.save(operation);
   }
@@ -52,7 +52,7 @@ public class OperationsBusinessImpl implements OperationsBusiness {
     return null;
   }
 
-  private  int balanceCheck(Double accountBalance, Double amountOperation) {
+  private int balanceCheck(Double accountBalance, Double amountOperation) {
     return accountBalance.compareTo(amountOperation);
   }
 
@@ -66,16 +66,24 @@ public class OperationsBusinessImpl implements OperationsBusiness {
     return operationRepository.findAll();
   }
 
-
-  private Account findAccount(OperationModel operationModel){
-    return  accountRepository
-            .findAccountByAccountNumber(operationModel.getAccountNumber())
+  @Override
+  public List<Operations> findOperationByAccount(String accountNumber) {
+    Account account =
+        accountRepository
+            .findAccountByAccountNumber(accountNumber)
             .orElseThrow(() -> new FunctionnalException("MISSING_DEPOSIT_ACCOUNT", "400"));
+    return operationRepository.findOperationByAccount(account);
   }
 
-  private Account findBeneficiary(OperationModel operationModel){
-    return  accountRepository
-            .findAccountByAccountNumber(operationModel.getAccountNumber())
-            .orElseThrow(() -> new FunctionnalException("MISSING_DEPOSIT_ACCOUNT", "400"));
+  private Account findAccount(OperationModel operationModel) {
+    return accountRepository
+        .findAccountByAccountNumber(operationModel.getAccountNumber())
+        .orElseThrow(() -> new FunctionnalException("MISSING_DEPOSIT_ACCOUNT", "400"));
+  }
+
+  private Account findBeneficiary(OperationModel operationModel) {
+    return accountRepository
+        .findAccountByAccountNumber(operationModel.getAccountNumber())
+        .orElseThrow(() -> new FunctionnalException("MISSING_DEPOSIT_ACCOUNT", "400"));
   }
 }

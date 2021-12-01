@@ -1,3 +1,4 @@
+import { Account } from './../class/account';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -18,8 +19,8 @@ export class OperationService {
     this.context_path = environment.context_path;
   }
 
-  getAllOperationClient(): Observable<Operation[]> {
-    return this.http.get<Operation[]>(this.host + this.context_path + "/operation");
+  getAllOperationClient(accountNumber:string): Observable<Operation[]> {
+    return this.http.get<Operation[]>(this.host + this.context_path + "/operation" + accountNumber);
   }
   save(operation: Operation): Observable<Operation> {
     return this.http.post<Operation>(this.host + this.context_path + "/operation", operation);

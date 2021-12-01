@@ -1,5 +1,6 @@
 package com.bank.account.business.operations;
 
+import com.bank.account.entity.Account;
 import com.bank.account.entity.Operations;
 import com.bank.account.model.OperationModel;
 
@@ -11,5 +12,6 @@ public interface OperationsBusiness {
     Operations withdrawal(OperationModel operationModel);
     List<Operations> findAllOperationByClient(Long idClient);
     List<Operations> findAllOperations();
+    List<Operations> findOperationByAccount(String accountNumber);
 
 }

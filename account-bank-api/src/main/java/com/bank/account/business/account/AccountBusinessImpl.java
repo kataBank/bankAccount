@@ -24,7 +24,7 @@ public class AccountBusinessImpl implements AccountBusiness {
       account = Mapper.mapFromModel(accountModel);
       account.setClients(
           clientRepository
-              .findById(accountModel.getIdClient())
+              .findClientByAccountNumber(accountModel.getAccountNumber())
               .orElseThrow(
                   () -> new FunctionnalException("MISSING_CLIENT_FOR_THIS_ACCOUNT", "400")));
       if (account.getIdAccount() == null) {
@@ -59,6 +59,6 @@ public class AccountBusinessImpl implements AccountBusiness {
 
   @Override
   public List<Account> findAllAccount() {
-    return null;
+    return accountRepository.findAll();
   }
 }

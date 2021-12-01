@@ -7,8 +7,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClientBusiness {
-    Client save(ClientModel clientModel);
-    Client updateClient(ClientModel clientModel);
-    Optional<Client> findClientByid(Long idClient);
-    List<Client> findClientAll();
+  Client save(ClientModel clientModel);
+
+  Client updateClient(ClientModel clientModel);
+
+  Optional<Client> findClientByid(Long idClient);
+
+  List<Client> findClientAll();
+
+  Client findClientByAccountNumber(String accountNumber);
 }

@@ -46,7 +46,6 @@ export class ClientComponent implements OnInit {
   onGetAllClients() {
     this.clientIn$=this.service.getAllClient().pipe(
       map(data=>{
-        console.log(data);
         return ({dataState:DataStateEnum.LOADED,data:data})
       }),
       startWith({dataState:DataStateEnum.LOADING}),

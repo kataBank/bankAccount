@@ -1,6 +1,44 @@
+<button type="submit" class="btn btn-red ml-2 mb-4 mt-4" (click)="onprintInfoCompte('infoAccount')">
+  Print
+</button>
 
-
-
-
-
-
+<div class="container mb-5 mt-5" id="infoAccount">
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="h-5 bg-gray-lighter rounded" style="text-align: center;">INFORMATION COMPTE CLIENT</div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-6">
+            <div class="h-5 bg-gray-lighter rounded"> NOM : {{client.lastName}}</div>
+        </div>
+        <div class="col-6">
+            <div class="h-5 bg-gray-lightest rounded">PRENOM : {{client.firstName}}</div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-4">
+            <div class="h-5 bg-gray-lighter rounded">RIB :  {{account.rib}}</div>
+        </div>
+        <div class="col-4">
+            <div class="h-5 bg-gray-lightest rounded">IBAN : {{account.iban}}</div>
+        </div>
+        <div class="col-4">
+            <div class="h-5 bg-gray-lighter rounded">NUMERO DE COMPTE : {{account.accountNumber}}</div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-3">
+            <div class="h-5 bg-gray-lighter rounded">CLIENT ID : {{client.clientId}}</div>
+        </div>
+        <div class="col-3">
+            <div class="h-5 bg-gray-lightest rounded">TELEPHONE : {{client.phoneNumber}}</div>
+        </div>
+        <div class="col-3">
+            <div class="h-5 bg-gray-lighter rounded">EMAIL : {{client.emailAdress}}</div>
+        </div>
+        <div class="col-3">
+            <div class="h-5 bg-gray-lightest rounded">DATE NAISSANCE : {{client.birtDayDate}}</div>
+        </div>
+    </div>
+</div>

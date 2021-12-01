@@ -5,55 +5,59 @@ import javax.persistence.*;
 @Entity
 @Table(name = "BENEFICIARY")
 public class Beneficiary {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idBeneficiary;
-    @Column(name = "name", nullable = false)
-    private String name;
-    @Column(name = "firstname" ,nullable = false)
-    private String firstname;
-    @Column(name = "accountNumber")
-    private String accountNumber;
-    @Column(name = "rib" ,unique = true, nullable = false)
-    private String rib;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long idBeneficiary;
 
-    public Long getIdBeneficiary() {
-        return idBeneficiary;
-    }
+  @Column(name = "name", nullable = false)
+  private String name;
 
-    public void setIdBeneficiary(Long idBeneficiary) {
-        this.idBeneficiary = idBeneficiary;
-    }
+  @Column(name = "firstname", nullable = false)
+  private String firstname;
 
-    public String getName() {
-        return name;
-    }
+  @Column(name = "accountNumber")
+  private String accountNumber;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Column(name = "rib", unique = true, nullable = false)
+  private String rib;
 
-    public String getFirstname() {
-        return firstname;
-    }
+  public Long getIdBeneficiary() {
+    return idBeneficiary;
+  }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+  public void setIdBeneficiary(Long idBeneficiary) {
+    this.idBeneficiary = idBeneficiary;
+  }
 
-    public String getAccountNumber() {
-        return accountNumber;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getRib() {
-        return rib;
-    }
+  public String getFirstname() {
+    return firstname;
+  }
 
-    public void setRib(String rib) {
-        this.rib = rib;
-    }
+  public void setFirstname(String firstname) {
+    this.firstname = firstname;
+  }
+
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+  public String getRib() {
+    return rib;
+  }
+
+  public void setRib(String rib) {
+    this.rib = rib;
+  }
 }

@@ -18,6 +18,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/account")
@@ -30,8 +31,14 @@ public class AccountControler {
     return new ResponseEntity<Account>(accountBusiness.save(accountModel), HttpStatus.CREATED);
   }
 
+  @GetMapping
+  public ResponseEntity<List<Account>> findAccounts() {
+    return new ResponseEntity<List<Account>>(accountBusiness.findAllAccount(), HttpStatus.ACCEPTED);
+  }
+
   @GetMapping("/{id}")
-  public ResponseEntity<Account> findAccountByByIdClient(@PathVariable Long id) {
-    return new ResponseEntity<Account>(accountBusiness.findAccountByIdClient(id), HttpStatus.ACCEPTED);
+  public ResponseEntity<Account> findAccountByIdClient(@PathVariable Long id) {
+    return new ResponseEntity<Account>(
+        accountBusiness.findAccountByIdClient(id), HttpStatus.ACCEPTED);
   }
 }

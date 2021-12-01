@@ -41,8 +41,8 @@ public class initData {
 
         Client client1 = new Client();
         client1.setBirtDayDate(LocalDate.of(1986, 05, 20));
-        client1.setFirstName("Hermann");
-        client1.setLastName("YEMDJEU");
+        client1.setFirstName("Emilie");
+        client1.setLastName("Pages");
         client1.setPhoneNumber("+3305342536");
         client1.setClientId("12345678");
         client1.setPassword(bCryptPasswordEncoder.encode(client1.getClientId()));
@@ -65,6 +65,7 @@ public class initData {
         account.setClients(client1);
         account.setIban("FR7612548029989876543210917.");
         account.setAccountNumber(client1.getAccountNumber());
+        account.setAccountType("EPARGNE");
         account.setBalance(Double.valueOf(0.0));
         account.setDomiciliation("SG MELUN");
         account.setRib("FR7630004000031234567890143 43");

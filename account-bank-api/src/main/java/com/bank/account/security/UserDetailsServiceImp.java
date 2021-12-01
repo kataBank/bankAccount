@@ -22,7 +22,10 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Client user = clientRepository.findClientByAccountNumber(username);
+    Client user =
+        clientRepository
+            .findClientByAccountNumber(username)
+            .orElseThrow(() -> new FunctionnalException("MISSING_CLIENT_FOR_THIS_ACCOUNT", "400"));
     if (user == null) {
       throw new FunctionnalException("MISSING USER", "400");
     }

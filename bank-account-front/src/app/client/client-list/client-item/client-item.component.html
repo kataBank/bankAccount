@@ -3,6 +3,8 @@
     <td>{{client.firstName}}</td>
     <td>{{client.lastName}}</td>
     <td>{{client.birtDayDate}}</td>
+    <td>{{client.accountNumber}}</td>
+    <td>{{client.clientId}}</td>
     <td>
       <button (click)="onSelect(client)" [ngClass]="client.status?'btn-success':'btn-danger'" class="btn btn-sm">
         <span *ngIf="client.status">Anactif</span>
