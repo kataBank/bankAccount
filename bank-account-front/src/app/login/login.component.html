@@ -1,0 +1,64 @@
+<body class="" *ngIf="isAuth">
+    <div class="page">
+        <div class="page-single">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col col-login mx-auto">
+
+                        <div class="text-center ">
+                            <img src="assets/logo/sg.jpg"  alt="SG">
+                        </div>
+
+                        <form  (ngSubmit)="onLogin()" [formGroup]="loginForm">
+
+                            <div class="card-body p-6">
+                                <div class="form-group">
+                                    <label class="form-label">Account Number</label>
+                                    <input name="accountNumber" type="text" class="form-control" id="accountNumber"
+                                    autocomplete="false" placeholder="Account Numbe" formControlName="accountNumber"
+                                    [ngClass]="{'is-invalid':loginForm.get('accountNumber').touched && !loginForm.get('accountNumber').valid}">
+                                    <div class="invalid-feedback">
+                                      <span *ngIf="loginForm.get('accountNumber').errors?.required">
+                                          Entrez votre numéro de compte
+                                      </span>
+                                      <span *ngIf="loginForm.get('accountNumber').errors?.maxlength">
+                                          Maxnimum 10 charactères
+                                      </span>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"> Client ID </label>
+                                    <input name="clientId" type="password" class="form-control" id="clientId" autocomplete="false"
+                                    placeholder="Client ID" formControlName="clientId"
+                                    [ngClass]="{'is-invalid':loginForm.get('clientId').touched && !loginForm.get('clientId').valid}">
+
+                                    <div class="invalid-feedback">
+                                      <span *ngIf="loginForm.get('clientId').errors?.required">
+                                          Entrez votre Id client
+                                      </span>
+                                      <span *ngIf="loginForm.get('clientId').errors?.maxlength">
+                                          Maxnimum 10 charactères
+                                      </span>
+                                  </div>
+
+                                </div>
+
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-red btn-block">Sign in</button>
+                                </div>
+
+
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

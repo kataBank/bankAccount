@@ -1,0 +1,64 @@
+<div class="header py-4">
+  <div class="container">
+    <div class="d-flex">
+      <a class="header-brand" routerLink="/account">
+        <img src="assets/logo/sg.jpg" alt="SG">
+      </a>
+      <div class="d-flex order-lg-2 ml-auto">
+        <div class="dropdown">
+          <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+            <span class="ml-2 d-none d-lg-block">
+              <span class="text-default" style="color: black; font-weight: bold;"> {{client.firstName}} | {{client.lastName}}</span>
+              <small class="text-muted d-block mt-1">Account Number : {{client.accountNumber}}</small>
+              <small  style="color: red; font-size: 14px;">Balance: 10 € </small>
+            </span>
+          </a>
+          <a href="#" (click)="deconexion()" title="Deconexion" >
+            <img src="assets/images/logout/gnome_session_logout.png"  alt="Deconexion">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-3 ml-auto">
+        <form class="input-icon my-3 my-lg-0">
+          <input type="search" class="form-control header-search" placeholder="Search&hellip;" tabindex="1">
+          <div class="input-icon-addon">
+            <i class="fe fe-search"></i>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg order-lg-first">
+        <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+          <li class="nav-item">
+            <a routerLink='/account' class="nav-link" style="color: red;"><i class="fe fe-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/operation' data-toggle="dropdown">
+              <i class="fe fe-box"></i> Opérations
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/client'>
+              <i class="fe fe-box"></i> Clients
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/client'>
+              <i class="fe fe-box"></i> Beneficiare
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/account'>
+              <i class="fe fe-box"></i> Account
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

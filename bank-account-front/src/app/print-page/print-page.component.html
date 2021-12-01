@@ -1,0 +1,71 @@
+<div class="row mb-4 mt-4" >
+  <div class="col-6">
+    <button type="submit" class="btn btn-red mb-4">
+      <a routerLink="/operation" style="color: white;text-decoration: none;"> Nouvelle Opération</a>
+    </button>
+    <button type="submit" class="btn btn-red ml-2 mb-4" (click)="onprintHistoriqueCompte('historique')">
+      Print
+    </button>
+  </div>
+</div>
+<div class="container" id="historique">
+  <div class="row">
+    <div class="col-6">
+      <p class="h3">SOCIETE GENERALE</p>
+      <address>
+        Street Address:<br>
+        State, City:<br>
+        Region, Postal Code:<br>
+        ltd@sg.com
+      </address>
+    </div>
+    <div class="col-6 text-end">
+      <p class="h3">Client</p>
+      <address>
+        Name<br>
+        Account Number <br>
+        Street Address<br>
+        State, City<br>
+        Region, Postal Code<br>
+        ctr@example.com
+      </address>
+    </div>
+  </div>
+  <div style="text-align: center;">
+
+    <h3>HISTORIQUE COMPTE</h3>
+
+  </div>
+  <br />
+  <form>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Crédit</th>
+          <th>Débit</th>
+          <th>Balance</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let op of operation">
+          <td>
+            {{op.description}}
+          </td>
+          <td style="color:green; font-weight: bold;">
+            {{op.creditAmount}}
+          </td>
+          <td style="color: red; font-weight: bold;">
+            - {{op.debitAmount}}
+          </td>
+          <td>
+            {{op.balance}}
+          </td>
+          <td>
+            {{op.dateOperation}}
+          </td>
+      </tbody>
+    </table>
+  </form>
+</div>

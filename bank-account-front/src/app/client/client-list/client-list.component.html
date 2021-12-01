@@ -1,0 +1,24 @@
+
+    <ng-container *ngIf="(clientsInput$ | async) as result" [ngSwitch]="result.dataState" >
+      <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+        Loading .....
+      </ng-container>
+      <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+        <div class="alert-danger">
+          {{result.errorMessage}}
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+        <table class="table">
+          <tr>
+            <th>ID</th><th>FirstName</th><th>LastName</th><th>Date Naissance</th><th>Status</th><th>Action</th>
+          </tr>
+          <app-client-item
+            [client]="p"
+            *ngFor="let p of result.data" style="display: contents">
+          </app-client-item>
+        </table>
+      </ng-container>
+    </ng-container>
+
+  

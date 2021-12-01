@@ -1,0 +1,5 @@
+<app-login *ngIf="!isAuth()"></app-login>
+<app-menu *ngIf="isAuth()"></app-menu>
+<router-outlet *ngIf="isAuth()"></router-outlet>
+<router-outlet name="print"></router-outlet>
+<app-footer *ngIf="isAuth()"></app-footer>

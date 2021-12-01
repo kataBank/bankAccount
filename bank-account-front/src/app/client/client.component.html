@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row mt-4 mb-4">
+    <h1 style="text-align: center;">CLIENT</h1>
+  </div>
+    <div class="col">
+        <div class="col-4 col-md-5 mb-3 mt-3">
+            <form novalidate (ngSubmit)="saveData()" [formGroup]="clientForm">
+
+                <div class="form-group">
+                    <input placeholder="Prénom *" type="text" class="form-control" id="firstname"
+                        formControlName="firstName" [ngClass]="{'is-invalid': clientForm.get('firstName').touched &&!clientForm.get('firstName').valid}">
+
+                    <div class="invalid-feedback">
+                        <span *ngIf="clientForm.get('firstName').errors?.required">
+                            Entrez votre nom
+                        </span>
+                        <span *ngIf="clientForm.get('firstName').errors?.maxlength">
+                            Maxnimum 10 charactères
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" placeholder="Nom * " class="form-control" id="lastname" formControlName="lastName"
+                        [ngClass]="{'is-invalid': clientForm.get('lastName').touched && !clientForm.get('lastName').valid }">
+
+                    <div class="invalid-feedback">
+                        <span *ngIf="clientForm.get('lastName').errors?.required">
+                            Entrez votre nom
+                        </span>
+                        <span *ngIf="clientForm.get('lastName').errors?.minlength">
+                            Minimum 2 charactères
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" placeholder="Email *" class="form-control" id="email"
+                        formControlName="emailAdress" [ngClass]="{'is-invalid': clientForm.get('emailAdress').touched && !clientForm.get('emailAdress').valid}">
+
+                    <div class="invalid-feedback">
+                        <span *ngIf="clientForm.get('emailAdress').errors?.required">
+                            Entrez  l'e-mail du client
+                        </span>
+                        <span *ngIf="clientForm.get('emailAdress').errors?.email">
+                            L'e-mail client n'est pas valide
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="email" placeholder="Téléphone *" class="form-control" id="email"
+                        formControlName="phoneNumber" [ngClass]="{'is-invalid': clientForm.get('phoneNumber').touched && !clientForm.get('phoneNumber').valid}">
+                    <div class="invalid-feedback">
+                        <span *ngIf="clientForm.get('phoneNumber').errors?.required">
+                            Veuillez entrer le numéro de télephone du client.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="date" placeholder="Date Naissance" class="form-control" id="date"
+                        formControlName="birtDayDate">
+                </div>
+
+
+                <button type="submit" class="btn btn-red" (click)="reloadCurrentPage()" >Enregistrer</button>
+            </form>
+
+
+        </div>
+        <div class="col-12 col-md-12">
+            <app-client-list [clientsInput$]="clientIn$"></app-client-list>
+        </div>
+    </div>
+</div>

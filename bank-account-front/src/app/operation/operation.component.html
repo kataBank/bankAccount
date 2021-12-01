@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row mt-4 mb-4">
+    <h1 style="text-align: center;">OPERATIONS</h1>
+  </div>
+  <div class="col">
+    <div class="col-sm-5">
+      <form (ngSubmit)="saveData()" [formGroup]="opertationForm">
+        <div class="form-group">
+          <div class="form-label">Type Opération</div>
+          <div class="custom-switches-stacked">
+            <label class="custom-switch">
+              <input type="radio" name="type" value="CREDIT" [(ngModel)]="typeOperation" formControlName="type"
+                class="custom-switch-input" checked>
+              <span class="custom-switch-indicator"></span>
+              <span class="custom-switch-description">Dépot</span>
+            </label>
+            <label class="custom-switch">
+              <input type="radio" name="type" value="DEBIT" [(ngModel)]="typeOperation" formControlName="type"
+                class="custom-switch-input">
+              <span class="custom-switch-indicator"></span>
+              <span class="custom-switch-description">Retrait</span>
+            </label>
+            <label class="custom-switch">
+              <input type="radio" name="type" value="TRANSFERT" [(ngModel)]="typeOperation" formControlName="type"
+                class="custom-switch-input">
+              <span class="custom-switch-indicator"></span>
+              <span class="custom-switch-description">Virement</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="amountOperation">Montant:</label>
+          <input type="number" class="form-control" id="amountOperation" name="amountOperation"
+            formControlName="amountOperation"
+            [ngClass]="{'is-invalid':opertationForm.get('amountOperation').touched && !opertationForm.get('amountOperation').valid}">
+          <div class="invalid-feedback">
+            <span *ngIf="opertationForm.get('amountOperation').errors?.required">
+              Entrez le montant
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="accountNumber">Numéro Compte à Débiter:</label>
+          <input type="text" class="form-control" id="pwd" name="aaccountNumber" formControlName="accountNumber"
+            [ngClass]="{'is-invalid':opertationForm.get('accountNumber').touched && !opertationForm.get('accountNumber').valid}">
+          <div class="invalid-feedback">
+            <span *ngIf="opertationForm.get('accountNumber').errors?.required">
+              Entrez votre numéro de compte
+            </span>
+            <span *ngIf="opertationForm.get('accountNumber').errors?.maxlength">
+              Maxnimum 10 charactères
+            </span>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="typeOperation=='TRANSFERT'">
+          <label for="account-cred">Numéro Compte à Créditer:</label>
+          <input type="password" class="form-control" id="pwd" name="account-cred" formControlName="beneficiary">
+        </div>
+
+
+        <div>
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="description" name="description" formControlName="description"
+            [ngClass]="{'is-invalid':opertationForm.get('description').touched && !opertationForm.get('description').valid}">
+
+          <div class="invalid-feedback">
+            <span *ngIf="opertationForm.get('description').errors?.required">
+              Entrez une description de l'opération
+            </span>
+            <span *ngIf="opertationForm.get('description').errors?.maxlength">
+              Maxnimum 40 charactères
+            </span>
+          </div>
+        </div>
+
+
+        <br>
+        <button type="submit" class="btn btn-red"  (click)="reloadCurrentPage()" >Valider</button>
+        <button type="submit" class="btn btn-red ml-2">
+          <a routerLink="/printPage" style="color: white;text-decoration: none;"> Print </a>
+        </button>
+      </form>
+    </div>
+    <div>
+      <span style="text-align: center; margin-top: 2%; margin-bottom: 2%;">
+        <h6>Liste Opérations</h6>
+      </span>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Opération</th>
+            <th>Crédit</th>
+            <th>Débit</th>
+            <th>Balance</th>
+            <th>Date</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let op of operation">
+            <td>
+              {{op.description}}
+            </td>
+            <td style="color:green; font-weight: bold;">
+              {{op.creditAmount}}
+            </td>
+            <td style="color: red; font-weight: bold;">
+              - {{op.debitAmount}}
+            </td>
+            <td>
+              {{op.balance}}
+            </td>
+            <td>
+              {{op.dateOperation}}
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
