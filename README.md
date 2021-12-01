@@ -36,11 +36,11 @@ NB: Pour des besoins de simplification, Angular (Front) est buildé et chargé c
 
 -  ng serve
 
-## Accès à l'application ( backend + Front )
+## Accès à l'application coté backend ( backend + Front ) 
 
 - localhost:8080/login
 
-## Accès au front uniquement
+## Accès à l'application coté front
 
 - localhost:4200/login
 
