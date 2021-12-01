@@ -44,3 +44,12 @@ NB: Pour des besoins de simplification, Angular (Front) est buildé et chargé c
 
 - localhost:4200/login
 
+NB: Pour se connecter à l'application, le client a besoin de son numéro de compte **(Account Number)** et de son Identifiant Client **(Client ID)** 
+
+## Client de demo
+
+- **Account Number :** 9876543210
+- **Client ID      :** 12345678
+
+
+
