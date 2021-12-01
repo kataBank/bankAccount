@@ -12,7 +12,7 @@ La partie sécurité est gérée par Spring sécurity, qui assure l'authentifica
 Nous avons utilisé H2 comme base de données.
 
 NB: Pour des besoins de simplification, Angular (Front) est buildé et chargé comme ressource static coté Backend (Spring Boot). 
- Ce qui permet après exécution du back, à l'application via l'url **localhost:8080:login**
+ Ce qui permet après exécution du back, d'accéder à l'application via l'url **localhost:8080:login**
 
 ### Pré-requis (environnement)
 
