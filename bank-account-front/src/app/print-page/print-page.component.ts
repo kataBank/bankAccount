@@ -24,9 +24,7 @@ export class PrintPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.onGetAccountClient;
-    console.log(this.account.accountNumber + "Check account Number")
-    this.getAllOperation(this.account.accountNumber);
+    this.onGetAccountClient();
   }
 
 
@@ -36,10 +34,12 @@ export class PrintPageComponent implements OnInit {
     this.accountService.getAccount(this.client.id).subscribe(
       (data) => {
         this.account = data;
-        console.log(data);
       },
       (err) => {
         //traitement d'erreur
+      },()=>{
+        this.getAllOperation(this.account.accountNumber);
+        console.log(this.account.accountNumber + "Accc")
       }
     );
   }
@@ -48,6 +48,8 @@ export class PrintPageComponent implements OnInit {
     this.service.getAllOperationClient(accountNumber).subscribe(
       (data) => {
         this.operation = data;
+        console.log(data + "data")
+        console.log(this.operation + "Operation")
       },
       (err) => {
         console.log(err);

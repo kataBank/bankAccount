@@ -1,7 +1,10 @@
 package com.bank.account.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Configuration
@@ -19,7 +23,9 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired private UserDetailsService userDetaitlsService;
-  @Autowired private BCryptPasswordEncoder bcrytPasswordEncoder;
+  @Autowired(required = true)
+  @Qualifier("BCryptPasswordEncoder")
+  private BCryptPasswordEncoder bcrytPasswordEncoder;
 
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -54,10 +60,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   }
 
 
- /* public void addViewControllers(ViewControllerRegistry registry) {
-    registry.addViewController("/account").setViewName("account");
-    registry.addViewController("/aperation").setViewName("operation");
-    registry.addViewController("/client").setViewName("client");
-    registry.addViewController("/login").setViewName("login");
-  }*/
+
 }

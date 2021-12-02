@@ -32,7 +32,7 @@ public class AccountBusinessImpl implements AccountBusiness {
       }
     } catch (Exception e) {
       throw new FunctionnalException("ERROR_CREATE_ACCOUNT", "400");
-    }
+   }
     return accountRepository.save(account);
   }
 

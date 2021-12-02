@@ -34,8 +34,8 @@ export class OperationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.onGetAccountClient();
-    this.getAllOperationClient(this.account.accountNumber);
 
     this.opertationForm = this.fb.group({
       type: ['', [Validators.required]],
@@ -80,6 +80,9 @@ export class OperationComponent implements OnInit {
       },
       (err) => {
         //traitement d'erreur
+      },
+      () => {
+        this.getAllOperationClient(this.account.accountNumber);
       }
     );
   }

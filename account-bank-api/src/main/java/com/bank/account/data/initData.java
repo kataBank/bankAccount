@@ -58,6 +58,27 @@ public class initData {
         client1.setRoles(roles);
         clientRepository.save(client1);
 
+        //User Test
+
+        Client clientTest = new Client();
+        clientTest.setBirtDayDate(LocalDate.of(1986, 05, 20));
+        clientTest.setFirstName("Raoul");
+        clientTest.setLastName("MiNO");
+        clientTest.setPhoneNumber("+3305342537");
+        clientTest.setClientId("898989889");
+        clientTest.setPassword(bCryptPasswordEncoder.encode(client1.getClientId()));
+        clientTest.setAccountNumber("8888888888");
+
+        List<Role> rolestest = new ArrayList<Role>();
+
+        Role usertest = new Role();
+        usertest.setRoleName("USER");
+        usertest.setDescription("role utilisateur");
+        roles.add(usertest);
+
+        clientTest.setRoles(rolestest);
+        clientRepository.save(clientTest);
+
         // Account
 
         Account account = new Account();

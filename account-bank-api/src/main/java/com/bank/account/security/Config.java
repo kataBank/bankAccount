@@ -2,12 +2,13 @@ package com.bank.account.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class Config {
   @Bean
-  public BCryptPasswordEncoder genereBCryptPasswordEncoder() {
+  public BCryptPasswordEncoder BCryptPasswordEncoder() {
     return new BCryptPasswordEncoder();
   }
 }

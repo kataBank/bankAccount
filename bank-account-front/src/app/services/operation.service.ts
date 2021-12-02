@@ -20,7 +20,7 @@ export class OperationService {
   }
 
   getAllOperationClient(accountNumber:string): Observable<Operation[]> {
-    return this.http.get<Operation[]>(this.host + this.context_path + "/operation" + accountNumber);
+    return this.http.get<Operation[]>(this.host + this.context_path + "/operation/" + accountNumber);
   }
   save(operation: Operation): Observable<Operation> {
     return this.http.post<Operation>(this.host + this.context_path + "/operation", operation);

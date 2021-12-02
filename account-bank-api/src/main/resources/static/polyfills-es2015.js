@@ -3033,7 +3033,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Mano\Dropbox\service-authentification\bank-account-front\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\Projects\workspace2021\bankAccount\bank-account-front\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
